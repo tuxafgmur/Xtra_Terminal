@@ -6,12 +6,12 @@ android {
 
     defaultConfig {
         applicationId "jackpal.androidterm"
-        minSdkVersion 4
+        minSdkVersion 19
         targetSdkVersion 22
 
         ndk {
             moduleName "libjackpal-androidterm5"
-            abiFilters 'armeabi', 'mips', 'x86'
+            abiFilters 'armeabi'
             ldLibs "log"
         }
     }
@@ -27,9 +27,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
-    compile project(':emulatorview')
     compile project(':libtermexec')
+    compile project(':emulatorview')
 }

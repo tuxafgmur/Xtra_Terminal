@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        minSdkVersion 4
+        minSdkVersion 19
         targetSdkVersion 22
     }
 
@@ -14,5 +14,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
