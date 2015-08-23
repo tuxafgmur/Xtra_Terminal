@@ -32,7 +32,7 @@ public abstract class ActionBarCompat {
     public static final int DISPLAY_SHOW_TITLE = 8;
     public static final int DISPLAY_SHOW_CUSTOM = 16;
 
-    // Provides android.R.id.home from API 11 and up
+    // Provides android.R.id.home
     public static final int ID_HOME = 0x0102002c;
 
     public interface OnNavigationListener {
@@ -41,9 +41,7 @@ public abstract class ActionBarCompat {
 
     public static ActionBarCompat wrap(Object actionBar) {
         if (actionBar != null) {
-            if (AndroidCompat.SDK >= 11) {
-                return new ActionBarApi11OrLater(actionBar);
-            }
+            return new ActionBarApi11OrLater(actionBar);
         }
         return null;
     }

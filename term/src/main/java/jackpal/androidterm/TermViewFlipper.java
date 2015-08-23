@@ -33,7 +33,6 @@ import jackpal.androidterm.emulatorview.EmulatorView;
 import jackpal.androidterm.emulatorview.TermSession;
 import jackpal.androidterm.emulatorview.UpdateCallback;
 
-import jackpal.androidterm.compat.AndroidCompat;
 import jackpal.androidterm.util.TermSettings;
 
 public class TermViewFlipper extends ViewFlipper implements Iterable<View> {
@@ -52,9 +51,8 @@ public class TermViewFlipper extends ViewFlipper implements Iterable<View> {
     /**
      * True if we must poll to discover if the view has changed size.
      * This is the only known way to detect the view changing size due to
-     * the IME being shown or hidden in API level <= 7.
+     * the IME being shown or hidden.
      */
-    private final boolean mbPollForWindowSizeChange = (AndroidCompat.SDK < 8);
     private static final int SCREEN_CHECK_PERIOD = 1000;
     private final Handler mHandler = new Handler();
     private Runnable mCheckSize = new Runnable() {
@@ -126,16 +124,10 @@ public class TermViewFlipper extends ViewFlipper implements Iterable<View> {
     }
 
     public void onPause() {
-        if (mbPollForWindowSizeChange) {
-            mHandler.removeCallbacks(mCheckSize);
-        }
         pauseCurrentView();
     }
 
     public void onResume() {
-        if (mbPollForWindowSizeChange) {
-            mCheckSize.run();
-        }
         resumeCurrentView();
     }
 

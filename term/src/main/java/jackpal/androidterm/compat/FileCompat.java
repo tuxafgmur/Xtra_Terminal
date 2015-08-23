@@ -41,10 +41,6 @@ public class FileCompat {
     }
 
     public static boolean canExecute(File file) {
-        if (AndroidCompat.SDK < 9) {
-            return Api8OrEarlier.canExecute(file);
-        } else {
-            return Api9OrLater.canExecute(file);
-        }
+        return Api9OrLater.canExecute(file);
     }
 }

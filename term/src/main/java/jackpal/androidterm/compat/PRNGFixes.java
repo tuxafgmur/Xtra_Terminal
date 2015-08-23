@@ -66,87 +66,16 @@ public final class PRNGFixes {
     }
 
     /**
-     * Applies the fix for OpenSSL PRNG having low entropy. Does nothing if the
-     * fix is not needed.
-     *
-     * @throws SecurityException if the fix is needed but could not be applied.
+     * Applies the fix for OpenSSL PRNG having low entropy.
      */
     private static void applyOpenSSLFix() throws SecurityException {
-        if ((AndroidCompat.SDK < VERSION_CODE_JELLY_BEAN)
-                || (AndroidCompat.SDK > VERSION_CODE_JELLY_BEAN_MR2)) {
-            // No need to apply the fix
-            return;
-        }
-
-        try {
-            // Mix in the device- and invocation-specific seed.
-            Class.forName("org.apache.harmony.xnet.provider.jsse.NativeCrypto")
-                    .getMethod("RAND_seed", byte[].class)
-                    .invoke(null, generateSeed());
-
-            // Mix output of Linux PRNG into OpenSSL's PRNG
-            int bytesRead = (Integer) Class.forName(
-                    "org.apache.harmony.xnet.provider.jsse.NativeCrypto")
-                    .getMethod("RAND_load_file", String.class, long.class)
-                    .invoke(null, "/dev/urandom", 1024);
-            if (bytesRead != 1024) {
-                throw new IOException(
-                        "Unexpected number of bytes read from Linux PRNG: "
-                                + bytesRead);
-            }
-        } catch (Exception e) {
-            throw new SecurityException("Failed to seed OpenSSL PRNG", e);
-        }
     }
 
     /**
-     * Installs a Linux PRNG-backed {@code SecureRandom} implementation as the
-     * default. Does nothing if the implementation is already the default or if
-     * there is not need to install the implementation.
-     *
-     * @throws SecurityException if the fix is needed but could not be applied.
+     * Installs a Linux PRNG-backed implementation as the default.
      */
-    private static void installLinuxPRNGSecureRandom()
-            throws SecurityException {
-        if (AndroidCompat.SDK > VERSION_CODE_JELLY_BEAN_MR2) {
-            // No need to apply the fix
-            return;
-        }
-
-        // Install a Linux PRNG-based SecureRandom implementation as the
-        // default, if not yet installed.
-        Provider[] secureRandomProviders =
-                Security.getProviders("SecureRandom.SHA1PRNG");
-        if ((secureRandomProviders == null)
-                || (secureRandomProviders.length < 1)
-                || (!LinuxPRNGSecureRandomProvider.class.equals(
-                        secureRandomProviders[0].getClass()))) {
-            Security.insertProviderAt(new LinuxPRNGSecureRandomProvider(), 1);
-        }
-
-        // Assert that new SecureRandom() and
-        // SecureRandom.getInstance("SHA1PRNG") return a SecureRandom backed
-        // by the Linux PRNG-based SecureRandom implementation.
-        SecureRandom rng1 = new SecureRandom();
-        if (!LinuxPRNGSecureRandomProvider.class.equals(
-                rng1.getProvider().getClass())) {
-            throw new SecurityException(
-                    "new SecureRandom() backed by wrong Provider: "
-                            + rng1.getProvider().getClass());
-        }
-
-        SecureRandom rng2;
-        try {
-            rng2 = SecureRandom.getInstance("SHA1PRNG");
-        } catch (NoSuchAlgorithmException e) {
-            throw new SecurityException("SHA1PRNG not available", e);
-        }
-        if (!LinuxPRNGSecureRandomProvider.class.equals(
-                rng2.getProvider().getClass())) {
-            throw new SecurityException(
-                    "SecureRandom.getInstance(\"SHA1PRNG\") backed by wrong"
-                    + " Provider: " + rng2.getProvider().getClass());
-        }
+    private static void installLinuxPRNGSecureRandom() {
+        return;
     }
 
     /**
@@ -317,8 +246,7 @@ public final class PRNGFixes {
      * @return serial number or {@code null} if not available.
      */
     private static String getDeviceSerialNumber() {
-        // We're using the Reflection API because Build.SERIAL is only available
-        // since API Level 9 (Gingerbread, Android 2.3).
+        // We're using the Reflection API
         try {
             return (String) Build.class.getField("SERIAL").get(null);
         } catch (Exception ignored) {

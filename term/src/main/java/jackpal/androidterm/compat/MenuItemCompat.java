@@ -18,8 +18,6 @@ public class MenuItemCompat {
     }
 
     public static void setShowAsAction(MenuItem item, int actionEnum) {
-        if (AndroidCompat.SDK >= 11) {
-            Api11OrLater.setShowAsAction(item, actionEnum);
-        }
+        Api11OrLater.setShowAsAction(item, actionEnum);
     }
 }
