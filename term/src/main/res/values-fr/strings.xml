@@ -151,13 +151,11 @@
    <string name="perm_prepend_to_path">Remplacer des commandes</string>
    <string name="permdesc_prepend_to_path">Permettre à une application de remplacer des commandes existantes avec ses versions (répertoire à ajouter en préfixe au PATH) dans Terminal Emulator</string>
 
-  <string name="title_mouse_tracking_preference">Envoyer des événements de souris</string>
-  <string name="summary_mouse_tracking_preference">Aussi bien les événements d\'appui et de scroll doivent être envoyés sous forme de séquences d\'échappement au terminal.</string>
+   <string name="title_mouse_tracking_preference">Envoyer des événements de souris</string>
+   <string name="summary_mouse_tracking_preference">Aussi bien les événements d\'appui et de scroll doivent être envoyés sous forme de séquences d\'échappement au terminal.</string>
 
    <string name="title_use_keyboard_shortcuts">Utiliser les raccourcis clavier</string>
-  <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cycle window, Ctrl-Shift-N: nouvelle fenêtre, Ctrl-Shift-V: coller.</string>
-  <string name="use_keyboard_shortcuts_summary_off">Raccourcis clavier désactivés.</string>
+   <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cycle window, Ctrl-Shift-N: nouvelle fenêtre, Ctrl-Shift-V: coller.</string>
+   <string name="use_keyboard_shortcuts_summary_off">Raccourcis clavier désactivés.</string>
 
-  <string name="help">Aide</string>
-  <!--<string name="help_url">http://jackpal.github.com/Android-Terminal-Emulator/help/index.html</string>-->
 </resources>

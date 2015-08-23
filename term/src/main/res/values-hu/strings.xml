@@ -163,7 +163,6 @@
   <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: váltás az ablakok között, Ctrl-Shift-N: új ablak, Ctrl-Shift-V: beillesztés.</string>
   <string name="use_keyboard_shortcuts_summary_off">Billentyű-parancsok letiltva.</string>
 
-  <string name="help">Súgó</string>
   <!-- BEGIN SHORTCUT RELATED STRINGS -->
   <!-- AndroidManifest.xml -->
   <string name="activity_shortcut_create">"Terminál parancsikon"</string>

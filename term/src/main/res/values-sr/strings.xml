@@ -163,8 +163,7 @@
   <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: пребаци прозор, Ctrl-Shift-N: нови прозор, Ctrl-Shift-V: налепи.</string>
   <string name="use_keyboard_shortcuts_summary_off">Пречице тастатуре су онемогућене.</string>
 
-  <string name="help">Помоћ</string>
-    <string name="activity_term_here_title">Терминал овде</string>
+  <string name="activity_term_here_title">Терминал овде</string>
   <!-- BEGIN SHORTCUT RELATED STRINGS -->
   <!-- AndroidManifest.xml -->
   <string name="activity_shortcut_create">"Терминалска пречица"</string>

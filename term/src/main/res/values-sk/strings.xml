@@ -159,8 +159,7 @@
   <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: prepnúť okno, Ctrl-Shift-N: nové okno, Ctrl-Shift-V: prilepiť.</string>
   <string name="use_keyboard_shortcuts_summary_off">Klávesové skratky sú zakázané.</string>
   
-  <string name="help">Pomocník</string>
-    <string name="activity_term_here_title">Otvoriť terminál</string>
+  <string name="activity_term_here_title">Otvoriť terminál</string>
   
   <string name="activity_shortcut_create">Skratka terminálu</string>
   <string name="fsnavigator_title">VYBERTE SÚBOR</string>

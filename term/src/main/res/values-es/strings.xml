@@ -163,8 +163,7 @@
   <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cambiar ventana, Ctrl-Shift-N: nueva ventana, Ctrl-Shift-V: pegar.</string>
   <string name="use_keyboard_shortcuts_summary_off">Atajos de teclado desactivados.</string>
 
-  <string name="help">Ayuda</string>
-    <string name="activity_term_here_title">Terminal aquí</string>
+  <string name="activity_term_here_title">Terminal aquí</string>
   
   <!-- BEGIN SHORTCUT RELATED STRINGS -->
   <!-- AndroidManifest.xml -->
@@ -192,6 +191,5 @@
   <string name="colorvalue_letter_blue">B</string>
   <string name="colorvalue_label_lock_button_column">BLOQUEAR</string>
   <string name="colorvalue_icon_text_entry_hint">Introduce texto del icono</string>
-
     <!-- END SHORTCUT RELATED STRINGS -->
 </resources>
